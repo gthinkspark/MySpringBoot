@@ -1,0 +1,20 @@
+二,工厂模式装配
+//工厂模式装配1					//通过工厂实现类来装配实例类对象
+factory/Jeep.java			//实例类对象
+factory/JeepFactory.java	//实例工厂实现类	实现FactoryBean接口
+factory/FactoryConfig.java				//配置 JeepFactory Bean来装配Jeep实体类(只用配置工厂实现类)
+factory/FactoryApplicationContextTest.java					//context获取Jeep对象
+
+注意!获取工厂实现类的方法:
+1,根据类型装配 context.getBean(JeepFactory.class);
+2,根据名字装配 context.getBean("&createJeepFactory");	//注意要加 & (createJeepFactory是方法的名字)
+
+//工厂模式装配2					
+factory/Car.java			//实例类对象
+factory/CarFactory.java		//实例工厂实现类 提供创建实例对象的方法
+factory/FactoryConfig.java				//配置 CarFactory和带参数的Car装配方法,Spring会自动装配参数中的Carfactory
+factory/FactoryApplicationContextTest.java					//context获取Car对象
+
+总结：
+1方法相对来说方法比较完整,实现接口创建；
+2方法相对来说比较自由,不需要实现或继承任何接口,命名可以随意命名;但作用域还需要注解来协助完成,需要配置两个装配;

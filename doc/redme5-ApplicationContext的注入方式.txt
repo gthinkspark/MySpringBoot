@@ -1,0 +1,7 @@
+五,ApplicationContext的注入方式
+org.study.spring.SpringBoot.application
+在一个类中需要得到ApplicationContext有三种实现方,分别参考Bank.java,Book.java,Good.java
+增强：
+其中Book的实现方法是实现ApplicationContextAware来得到ApplicationContext实现原理：
+通过实现BeanPostProcessor在对象装配的时候判断是不是ApplicationContextAware的子类;如果是,则调用setApplicationContext将ApplicationConetext传进去；
+详情参考MyBeanPostProcessor.java；

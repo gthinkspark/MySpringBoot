@@ -1,0 +1,8 @@
+一,搭建一个简单的SpringBoot项目：
+创建要装配的Bean,		MyBean.java		//普通的类对象
+创建配置装配的配置文件,		Myconfig.java	//需要加上@Configuration注解
+创建执行类,				App.java		//方法很多,这里使用的是 AnnoationConfigApplicationContext来加载
+	AnnotationConfigApplicationContext 加载MyConfig.class类,得到MyBean的注解声明。
+	@Configuration,声明此类为配置类
+	@Bean,可作用用于类的属性或方法上,默认注解的name是属性名或方法名;@Bean(name="myBean")可自定义类的注册名。
+	@Scope,作用域注解,默认加载方式是singleton单例加载模式,即只有一个实例对象;@Scope("prototype")是表示每次请求创建一个新的实例。

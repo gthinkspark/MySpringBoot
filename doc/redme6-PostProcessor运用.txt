@@ -1,0 +1,7 @@
+六,PostProcessor运用
+org.study.spring.SpringBoot.processor
+BeanFactoryPostProcessor,在Spring容器初始化后出发,并且只触发一次,触发的时机比BeanPostProcessor早;
+BeanDefinitionRegistryPostProcessor,可以拿到ConfigurableListableBeanFactory、BeanDefinitionRegistry两个对象,BeanDefinitionRegistry可以动态注入Bean
+例子：
+BeanDefinitionRegistry动态自定义注入10个Person Bean实例
+详见 MyBeanDefinitionRegistryPostProcessor.java

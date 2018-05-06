@@ -1,0 +1,27 @@
+四,依赖注入  depend
+org.study.spring.SpringBoot.depend
+
+注意：
+1,三层注解
+@Component  //通用注解,可用于任何Bean,一般没有明确角色的时候使用
+@Repository //一般用在访问数据层上面,即Dao层
+@Service    //业务逻辑层,即Service层
+@Controller //一般用在展现层,Controller
+增强：
+@Primary	//设置为主要的装配方式,如果存在多个类型一样的实例,有@Primary注解的则为默认主要装配方式,除非特殊指定；详见User.java
+
+2,Bean的三种装配方法
+@Autowired				//Spring提供的注解,默认按类型装配
+@Resource				//JSR-250自动装配,默认按name名字装配
+@Inject					//JSR-330自动装配,默认按name名字装配,注意需要手动添加inject依赖包
+增强：
+@Qualifier("createUser")	//存在多个相同类型的实例,指定一个作为装配的名字；详见UserDao.java
+
+3,Context创建
+AnnotationConfigApplicationContext的三种创建方法,详见BeanApplicationContextTest.java；
+增强：
+//方法三,可传一个注解文件,但注解文件里面拥有@ComponentScan注解可指定扫描规则
+注意：
+@ComponentScan		//注解的规则
+@Filter				//过滤器
+详见 AnnotationScan.java
